@@ -32,7 +32,7 @@ public class MatchComTest {
 	  driver.manage().window().maximize();
   }
 
-  @Test(enabled=false)
+  @Test(enabled=true)
   public void registerForMatchCom() throws InterruptedException {
 	  //Navigate to registration page
 	  driver.get("http://www.match.com/cpx/en-us/match/registration/indexpage");
@@ -120,39 +120,7 @@ public class MatchComTest {
 		  System.out.println("Added User is available under My Favorites: " + actualUserAdded);
   }
   
-  @Test(enabled=true)
-  public void test1() throws InterruptedException{
-	  driver.get("https://secure.match.com/login/index/#/");
-	  wait.until(ExpectedConditions.elementToBeClickable(By.id("email")));
-	  driver.findElement(By.id("email")).sendKeys("ruza123@gmail.com");
-	  driver.findElement(By.id("password")).sendKeys("test123");
-	  driver.findElement(By.xpath("//button[text()='Sign in now »']")).click();
-	  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='welcomeMsg']/a")));
-	  
-	  WebElement toElement = driver.findElement(By.xpath("//div[@id='header-nav']//li[contains(@class,'menu-Connections')]"));
-	  actions.moveToElement(toElement).build().perform();
-	  Thread.sleep(1000);
-	  driver.findElement(By.xpath("//div[@id='header-nav']//a[text()='My Favorites ']")).click();
-	  wait.until(ExpectedConditions.elementToBeClickable(By.id("tab-cnt-fave")));
-	  
-	  toElement = driver.findElement(By.xpath("//div[@id='header-nav']//li[contains(@class,'menu-Logout')]"));	  
-	  actions.moveToElement(toElement).build().perform(); 
-	  Thread.sleep(1000);
-	  driver.findElement(By.xpath("//div[@id='header-nav']//a[text()='Sign Out ']")).click();
-	  
-	  /*
-	  //OTHER PAGE
-	  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-uia-button-link='save'][1]")));
-	  temp = driver.findElement(By.xpath("//a[@data-uia-button-link='save'][1]"));
-	  do {
-		  temp = temp.findElement(By.xpath(".."));
-	  } while(! temp.getAttribute("class").startsWith("rflFlex rflFlexVertical"));
-	  
-	  String addedUser = temp.findElement(By.xpath("//a[starts-with(@href,'/profile/about')]")).getText();	  
-	  driver.findElement(By.xpath("//a[@data-uia-button-link='save'][1]/span")).click();
-	  */
-	  
-  }
+  
   
   @AfterTest
   public void afterTest() {
