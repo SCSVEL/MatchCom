@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FirstTestNGSuite" parallel="tests">
+  <test name="FirstTestNGRun">
+    <classes>
+      <class name="com.shan.tests.MatchComTest"/>
+    </classes>
+  </test> <!-- FirstTestNGRun -->
+</suite> <!-- FirstTestNGSuite -->
